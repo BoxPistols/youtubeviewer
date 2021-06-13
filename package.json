@@ -3,6 +3,12 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack --mode production",
+        "build:dev": "webpack --mode development",
+        "watch": "npm run build:dev -- --watch"
+    },
     "dependencies": {
         "babel-loader": "^8.1.0",
         "core-js": "^3.6.4",

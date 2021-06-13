@@ -127,3 +127,31 @@ export default (env, args) => {
     };
 };
 ```
+
+*  test `$ npx webpack --mode development`
+
+### create html test
+
+* ./sample.html
+
+```html
+...
+<div id="root"></div>
+<script src="./output/sample.js"></script>
+```
+
+* package.json
+
+```json
+ "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "watch": "npm run build:dev -- --watch"
+ }
+```
+
+* test
+    - $ npm run build
+    - $ npm run build:dev
+    - $ npm run watch
