@@ -155,3 +155,57 @@ export default (env, args) => {
     - $ npm run build
     - $ npm run build:dev
     - $ npm run watch
+
+## express set
+
+* `$ npm i express
+`
+
+### create  index.js
+
+```javascript
+const path = require('path');
+const express = require('express');
+const app = express();
+const router = express.Router();
+
+const server = app.listen(3000, function() {
+    console.log(`Node.js is listening to PORT: ${server.address().port}`);
+});
+
+router.use(express.static('public'));
+
+router.get('*', (req, res, next) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+app.use('/', router);
+```
+
+```json
+  └ public
+    └ index.html
+```
+
+* public/index.html
+
+```html
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<head>
+    <title>YouTubeViewer</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
+```
+
+##  react-router-dom
+
+* ` npm i react-router-dom@^5.1.2`
