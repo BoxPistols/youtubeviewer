@@ -1,32 +1,38 @@
 {
-    "name": "youtubeviewer",
-    "version": "1.0.0",
-    "main": "index.js",
-    "license": "MIT",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "webpack --mode production",
-        "build:dev": "webpack --mode development",
-        "watch": "npm run build:dev -- --watch",
-        "start": "node ."
-    },
-    "dependencies": {
-        "babel-loader": "^8.1.0",
-        "core-js": "^3.6.4",
-        "express": "^4.17.1",
-        "prop-types": "^15.7.2",
-        "react": "^16.12.0",
-        "react-dom": "^16.12.0",
-        "react-router-dom": "^5.2.0",
-        "regenerator-runtime": "^0.13.3",
-        "webpack": "^4.42.0",
-        "webpack-cli": "^3.3.11"
-    },
-    "devDependencies": {
-        "@babel/cli": "^7.14.5",
-        "@babel/core": "^7.14.5",
-        "@babel/preset-env": "^7.14.5",
-        "@babel/preset-react": "^7.14.5",
-        "@babel/register": "^7.14.5"
-    }
+  "name": "youtubeviewer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "watch": "npm run build:dev -- --watch",
+    "start": "node .",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "dependencies": {
+    "babel-loader": "^8.1.0",
+    "core-js": "^3.6.4",
+    "express": "^4.17.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.2.0",
+    "regenerator-runtime": "^0.13.3",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.5",
+    "@babel/preset-env": "^7.14.5",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/register": "^7.14.5",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/react": "^6.2.9"
+  }
 }
