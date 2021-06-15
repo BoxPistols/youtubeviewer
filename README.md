@@ -1,6 +1,7 @@
 # Youtube viewer
-* use API on React
-* create Storybook
+
+-   use API on React
+-   create Storybook
 
 ---
 
@@ -8,10 +9,10 @@
 
 ### npm init
 
-* init
- `$ npm init`
+-   init
+    `$ npm init`
 
-* create file
+-   create file
 
 ```
 youtubeviewer
@@ -20,41 +21,36 @@ youtubeviewer
       └ sample.jsx
 ```
 
-* src/entries/sample.jsx
+-   src/entries/sample.jsx
 
 ```jsx
 // move on Browser
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 // move  React
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-const rootEl = document.getElementById('root');
+const rootEl = document.getElementById('root')
 
-ReactDOM.render(
-  <h1>Hello react.</h1>,
-  rootEl,
-);
+ReactDOM.render(<h1>Hello react.</h1>, rootEl)
 ```
 
-###  install base packages
+### install base packages
 
-* `$ npm i react@^16.12.0 react-dom@^16.12.0 core-js@^3.6.4 regenerator-runtime@^0.13.3 prop-types@^15.7.2
-`
+-   `$ npm i react@^16.12.0 react-dom@^16.12.0 core-js@^3.6.4 regenerator-runtime@^0.13.3 prop-types@^15.7.2`
 
-###  install babel packages
+### install babel packages
 
-* `$ npm i -D @babel/core@^7.8.3 @babel/register@^7.8.3 @babel/preset-env@^7.8.3 @babel/preset-react@^7.8.3 @babel/cli@^7.8.3
-`
+-   `$ npm i -D @babel/core@^7.8.3 @babel/register@^7.8.3 @babel/preset-env@^7.8.3 @babel/preset-react@^7.8.3 @babel/cli@^7.8.3`
 
-###  create babel.config.js
+### create babel.config.js
 
 ```js
 // has presets & plugins use object
 module.exports = (api) => {
-    const isProduction = api.env('production');
-    api.cache(true);
+    const isProduction = api.env('production')
+    api.cache(true)
     const presets = [
         [
             // TranseCompile
@@ -83,37 +79,38 @@ module.exports = (api) => {
                 development: !isProduction,
             },
         ],
-    ];
+    ]
 
-    const plugins = [];
+    const plugins = []
 
     return {
         presets,
         plugins,
-    };
-};
+    }
+}
 ```
 
-* test `npx babel src/entries/sample.jsx -o output.js`
+-   test `npx babel src/entries/sample.jsx -o output.js`
 
 ### Set WebPack
 
-* `npm install webpack@4.42.0 webpack-cli@3.3.11 babel-loader@8.1.0
-`
-* use babel
-* create `webpack.config.babel.js`
+-   `npm install webpack@4.42.0 webpack-cli@3.3.11 babel-loader@8.1.0`
+-   use babel
+-   create `webpack.config.babel.js`
 
 ```js
-import webpack from 'webpack';
-import path from 'path';
+import webpack from 'webpack'
+import path from 'path'
 
 export default (env, args) => {
-    const isProduction = args.mode === 'production';
-    const devtool = !isProduction && 'inline-source-map';
-    const rules = [{
-        test: /\.jsx?$/,
-        use: ['babel-loader'],
-    }, ];
+    const isProduction = args.mode === 'production'
+    const devtool = !isProduction && 'inline-source-map'
+    const rules = [
+        {
+            test: /\.jsx?$/,
+            use: ['babel-loader'],
+        },
+    ]
 
     return {
         entry: './src/entries/sample.jsx',
@@ -122,17 +119,17 @@ export default (env, args) => {
             filename: 'sample.js',
         },
         module: {
-            rules
+            rules,
         },
-    };
-};
+    }
+}
 ```
 
-*  test `$ npx webpack --mode development`
+-   test `$ npx webpack --mode development`
 
 ### create html test
 
-* ./sample.html
+-   ./sample.html
 
 ```html
 ...
@@ -140,7 +137,7 @@ export default (env, args) => {
 <script src="./output/sample.js"></script>
 ```
 
-* package.json
+-   package.json
 
 ```json
  "scripts": {
@@ -151,35 +148,34 @@ export default (env, args) => {
  }
 ```
 
-* test
-    - $ npm run build
-    - $ npm run build:dev
-    - $ npm run watch
+-   test
+    -   \$ npm run build
+    -   \$ npm run build:dev
+    -   \$ npm run watch
 
 ## express set
 
-* `$ npm i express
-`
+-   `$ npm i express`
 
-### create  index.js
+### create index.js
 
 ```javascript
-const path = require('path');
-const express = require('express');
-const app = express();
-const router = express.Router();
+const path = require('path')
+const express = require('express')
+const app = express()
+const router = express.Router()
 
-const server = app.listen(3000, function() {
-    console.log(`Node.js is listening to PORT: ${server.address().port}`);
-});
+const server = app.listen(3000, function () {
+    console.log(`Node.js is listening to PORT: ${server.address().port}`)
+})
 
-router.use(express.static('public'));
+router.use(express.static('public'))
 
 router.get('*', (req, res, next) => {
-    res.sendFile(path.join(__dirname, './public/index.html'));
-});
+    res.sendFile(path.join(__dirname, './public/index.html'))
+})
 
-app.use('/', router);
+app.use('/', router)
 ```
 
 ```json
@@ -187,29 +183,38 @@ app.use('/', router);
     └ index.html
 ```
 
-* public/index.html
+-   public/index.html
 
 ```html
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-<head>
-    <title>YouTubeViewer</title>
-</head>
+    <head>
+        <title>YouTubeViewer</title>
+    </head>
 
-<body>
-    <div id="root"></div>
-    <script src="/js/app.js"></script>
-</body>
-
+    <body>
+        <div id="root"></div>
+        <script src="/js/app.js"></script>
+    </body>
 </html>
 ```
 
-###  install router
+### install router
 
-* ` npm i react-router-dom@^5.1.2`
+-   `npm i react-router-dom@^5.1.2`
 
-##  Create TopPage
+## Create TopPage
 
-* src/components/pages/TopPage/index.jsx
+-   src/components/pages/TopPage/index.jsx
+
+---
+
+-   Create
+    -   TopPage
+    -   VideoPlayer
+    -   404
+-   Routing
+
+`Git 3408127`
